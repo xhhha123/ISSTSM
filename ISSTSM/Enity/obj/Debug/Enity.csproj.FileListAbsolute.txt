@@ -1,0 +1,10 @@
+D:\workspace\ISSTS\code\ISSTSM\Enity\bin\Debug\Enity.dll
+D:\workspace\ISSTS\code\ISSTSM\Enity\bin\Debug\Enity.pdb
+D:\workspace\ISSTS\code\ISSTSM\Enity\obj\Debug\Enity.dll
+D:\workspace\ISSTS\code\ISSTSM\Enity\obj\Debug\Enity.pdb
+E:\ISS\code\ISSTSM\Enity\bin\Debug\Enity.dll
+E:\ISS\code\ISSTSM\Enity\bin\Debug\Enity.pdb
+E:\ISS\code\ISSTSM\Enity\obj\Debug\Enity.csprojResolveAssemblyReference.cache
+E:\ISS\code\ISSTSM\Enity\obj\Debug\Enity.dll
+E:\ISS\code\ISSTSM\Enity\obj\Debug\Enity.pdb
+D:\workspace\ISSTS\code\ISSTSM\Enity\obj\Debug\Enity.csprojResolveAssemblyReference.cache

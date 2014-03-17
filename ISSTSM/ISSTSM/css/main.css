@@ -1,0 +1,727 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+body
+{
+    background-color: #000000; /*#5c87b2;000000*/
+    font-size: 75%;
+    font-family: Verdana, Tahoma, Arial, "Helvetica Neue" , Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #000000; /*#696969;*/
+}
+
+/*a:link
+{
+    color: #034af3;
+    text-decoration: underline;
+}
+a:visited
+{
+    color: #505abc;
+}
+a:hover
+{
+    color: #1d60ff;
+    text-decoration: none;
+}
+a:active
+{
+    color: #12eb87;
+}
+*/
+
+p, ul
+{
+    line-height: 1.6em;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #000;
+}
+
+h1
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+h2
+{
+    padding: 0 0 10px 0;
+}
+h3
+{
+    font-size: 1.2em;
+}
+h4
+{
+    font-size: 1.1em;
+}
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* this rule styles <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page
+{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header
+{
+    position: relative;
+    margin-bottom: 0px;
+    color: #000;
+    padding: 0;
+    width: 975px;
+    margin: 0 auto;
+}
+
+#header h1
+{
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    color: #fff;
+    border: none;
+    line-height: 2em;
+    font-size: 32px !important;
+}
+#adv
+{
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+    width: 900px;
+    position: relative;
+    top: -43px;
+    margin: 0 auto;
+}
+
+#main
+{
+    /*padding: 30px 30px 15px 30px;*/
+    background-color: #fff;
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+    width: 900px;
+    margin: 0 auto;
+    position: relative;
+    top: -58px;
+}
+
+#main .zbtitle
+{
+    color: #0e0e0e;
+    height: 36px;
+    background: #c6c6c6 url("/images/zbtitlebg.jpg") repeat-x;
+    padding: 0 0 0 15px;
+    line-height: 3.2em;
+}
+
+#main .showzbtitle
+{
+    color: #000;
+    height: 29px;
+    background: #c6c6c6 url("/images/showzbtitle.jpg") repeat-x;
+    padding: 0 0 0 15px;
+    line-height: 3.2em;
+    font-weight: bold;
+}
+
+
+#footer
+{
+    width: 975px;
+    margin: 0 auto;
+    height: 50px;
+    position: relative;
+    top: -50px;
+    background: #121212 url("/images/footer_mid.jpg") repeat-x;
+}
+
+#footer table
+{
+    padding: none;
+    width: 975px;
+    height: 48px;
+}
+#footer table td, #footer table th
+{
+    border: none;
+    padding: none;
+    margin: none;
+    height: 48px;
+    text-align: center;
+}
+#footer table th
+{
+    width: 30px;
+    padding: none;
+    background-color: transparent;
+}
+
+#footer ul li
+{
+    display: inline;
+    text-align: center;
+    color: #dbdbdb;
+}
+#footer ul li a
+{
+    color: #dbdbdb;
+    text-decoration: none;
+}
+#adv_foot
+{
+    width: 900px;
+    height: 85px;
+}
+
+/* TAB MENU   
+----------------------------------------------------------
+ul#menu
+{
+    border-bottom: 1px #5C87B2 solid;
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+}
+
+ul#menu li
+{
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting
+{
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a
+{
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #e8eef4;
+    color: #034af3;
+}
+
+ul#menu li a:hover
+{
+    background-color: #fff;
+    text-decoration: none;
+}
+
+ul#menu li a:active
+{
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a
+{
+    background-color: #fff;
+    color: #000;
+}
+*/
+
+ul#menu li
+{
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li a
+{
+    padding: 11px 20px;
+    text-decoration: none;
+    line-height: 3.4em;
+    color: #c0c0c0;
+    height: 50px;
+}
+
+ul#menu .over a
+{
+    color: #fe7600;
+}
+
+ul#menu .over
+{
+    padding: 11px 20px;
+    text-decoration: none;
+    line-height: 3.4em;
+    background-color: #000;
+    height: 50px;
+}
+/*
+ul#menu li:first-child
+{
+    padding: 11px 20px;
+    text-decoration: none;
+    line-height: 3.4em;
+    background-color: #000;    //li选中背景色
+    height: 50px;
+}
+
+ul#menu li:first-child a
+{
+    color:#fe7600;//a选中前景色
+}*/
+
+
+/*---------_MenuPartial.cshtml*/
+#menucontainer
+{
+}
+#menucontainer table
+{
+    padding: none;
+    width: 975px;
+    height: 84px;
+}
+#menucontainer table td, #menucontainer table th, #menucontainer table ul
+{
+    border: none;
+    padding: none;
+    margin: none;
+    height: 84px;
+}
+#menucontainer table th
+{
+    width: 30px;
+    padding: none;
+    background-color: transparent;
+}
+
+
+#menucontainer #menu
+{
+    background-image: url("/images/menu_mid.jpg");
+    background-repeat: repeat-x;
+}
+
+
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend
+{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-left: 35px;
+}
+
+textarea
+{
+    min-height: 75px;
+}
+
+input[type="text"]
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+input[type="password"]
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+
+table.zblist
+{
+    width: 100%;
+    border: solid 1px #000;
+    border-collapse: collapse;
+}
+
+table.zblist tr
+{
+    background-color: #f0f0f0;
+}
+
+table.zblist td
+{
+    padding: 3px;
+    border: solid 1px #fff;
+    text-align: center;
+}
+
+table.zblist th
+{
+    text-align: center;
+    padding: 6px 5px;
+    background-color: #929292;
+    border: solid 1px #fff;
+    color: #fff;
+}
+
+#main td.groupTitle
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+#main td.groupTitle div
+{
+    background-color: #e1d3b9;
+    padding: 0 0 0 15px;
+    line-height: 3em;
+    text-align: left;
+}
+
+#main td.groupTitle b
+{
+    margin: 0 0 0 10px;
+}
+
+#main #pager
+{
+    text-align: right;
+    background-color: #fff;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+.clear
+{
+    clear: both;
+}
+
+.error
+{
+    color: Red;
+}
+
+#menucontainer
+{
+    /*margin-top: 40px;*/
+}
+
+div#title
+{
+    display: block; /*float: left;*/
+    text-align: left;
+    height: 50px;
+}
+
+#logindisplay
+{
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    margin: 10px;
+    color: White;
+    float: right;
+}
+
+#logindisplay a
+{
+    text-decoration: none;
+}
+/*
+#logindisplay a:link
+{
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited
+{
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover
+{
+    color: white;
+    text-decoration: none;
+}
+*/
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label, .editor-label
+{
+    margin: 1em 0 0 0;
+}
+
+.display-field, .editor-field
+{
+    margin: 0.5em 0 0 0;
+}
+
+.text-box
+{
+    width: 30em;
+}
+
+.text-box.multi-line
+{
+    height: 6.5em;
+}
+
+.tri-state
+{
+    width: 6em;
+}
+
+.orgred, a.orgred
+{
+    color: #fe6700;
+}
+
+input[type="text"].txtwd, input[type="password"].txtwd
+{
+    width: 100px;
+}
+
+
+.margleft10
+{
+    margin-left: 10px;
+}
+.margleft5
+{
+    margin-left: 5px;
+}
+
+.w73, input[type="text"].w73
+{
+    width: 73px;
+}
+
+.w83, input[type="text"].w83
+{
+    width: 83px;
+}
+
+.w122, input[type="text"].w122
+{
+    width: 122px;
+}
+.w142, input[type="text"].w142
+{
+    width: 142px;
+}
+
+.w284, input[type="text"].w284
+{
+    width: 284px;
+}
+
+/*分页控件样式*/
+.pages
+{
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+    height: 30px;
+    padding: 15px 0 0 0;
+    margin-right: 20px;
+}
+.pages .item
+{
+    padding: 1px 1px;
+    font-size: 13px;
+}
+/*数字页索引样式*/
+.pages .cpb
+{
+    background-color: #ff8800;
+    color: #fff;
+    padding: 1px 6px;
+    font-size: 13px;
+}
+/*当前页样式*/
+.pages a
+{
+    text-decoration: none;
+    padding: 0 5px;
+    border: 1px solid #ddd;
+    margin: 0 2px;
+    color: #000;
+    font-weight: normal;
+}
+.pages a:hover
+{
+    background-color: #ff8800;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+a#a0, a#a1, a#a2
+{
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+a#a0, a#a0:link
+{
+    color: Blue;
+}
+a#a0:visited
+{
+    color: #505abc;
+}
+a#a0:hover
+{
+    color: #1d60ff;
+}
+a#a0:active
+{
+    color: #12eb87;
+}
+
+
+a#a1, a#a1:link
+{
+    color: red;
+}
+a#a1:visited
+{
+    color: #B40404;
+}
+a#a1:hover
+{
+    color: #FF0000;
+}
+a#a1:active
+{
+    color: #B40404;
+}
+
+a#a2
+{
+    color: Blue;
+}
+a#a2:link
+{
+    color: Blue;
+}
+a#a2:visited
+{
+    color: #505abc;
+}
+a#a2:hover
+{
+    color: #1d60ff;
+}
+a#a2:active
+{
+    color: #12eb87;
+}
+
+.red
+{
+    color: Red;
+}
+
+.center
+{
+    text-align: center;
+}
+
+.mt10
+{
+    margin-top: 10px;
+}
+
+.title
+{
+    font-size: 16px;
+}
+
+.blue
+{
+    color: Blue;
+}
+
+.f16
+{
+    font-size: 16px;
+}
+
+.sed
+{
+    cursor: pointer;
+    background: #c6c6c6 url("/images/sed.jpg") repeat-x;
+    vertical-align:middle;
+}
+
+.used
+{
+    cursor: pointer;
+    background: #c6c6c6 url("/images/used.jpg") repeat-x;
+    vertical-align:middle;
+}
+

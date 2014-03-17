@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{81FE05BE-B91F-4D24-AFE1-89398C1346E5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessLogicLayer</RootNamespace>
+    <AssemblyName>BusinessLogicLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLogicLayerBase\DataDictionaryBLLBase.cs" />
+    <Compile Include="BusinessLogicLayerBase\IncidentBLLBase.cs" />
+    <Compile Include="BusinessLogicLayerBase\ModuleBLLBase.cs" />
+    <Compile Include="BusinessLogicLayerBase\ModulePermissionBLLBase.cs" />
+    <Compile Include="BusinessLogicLayerBase\PermissionBLLBase.cs" />
+    <Compile Include="BusinessLogicLayerBase\RoleBLLBase.cs" />
+    <Compile Include="BusinessLogicLayerBase\RoleModulePermissionBLLBase.cs" />
+    <Compile Include="BusinessLogicLayerBase\SectionBLLBase.cs" />
+    <Compile Include="BusinessLogicLayerBase\TimeSheetBLLBase.cs" />
+    <Compile Include="BusinessLogicLayerBase\UserInfoBLLBase.cs" />
+    <Compile Include="BusinessLogicLayerBase\UserRoleBLLBase.cs" />
+    <Compile Include="DataDictionaryBLLSub.cs" />
+    <Compile Include="IncidentBLLSub.cs" />
+    <Compile Include="ModuleBLLSub.cs" />
+    <Compile Include="ModulePermissionBLLSub.cs" />
+    <Compile Include="PermissionBLLSub.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleBLLSub.cs" />
+    <Compile Include="RoleModulePermissionBLLSub.cs" />
+    <Compile Include="SectionBLLSub.cs" />
+    <Compile Include="TimeSheetBLLSub.cs" />
+    <Compile Include="UserInfoBLLSub.cs" />
+    <Compile Include="UserRoleBLLSub.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayerFactory\DataAccessLayerFactory.csproj">
+      <Project>{b21d815a-5283-4476-8f83-aed7d5a3fbfc}</Project>
+      <Name>DataAccessLayerFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{9af8371d-13b0-4d66-813e-76a0ba5c87c9}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enity\Entity.csproj">
+      <Project>{b40cd982-4754-4c8a-950c-826b52188a60}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDataAccessLayer\IDataAccessLayer.csproj">
+      <Project>{d9bc5ec8-7d82-44bb-870e-54ee8eb89018}</Project>
+      <Name>IDataAccessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
