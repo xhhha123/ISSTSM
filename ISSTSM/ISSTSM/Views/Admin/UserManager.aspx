@@ -85,7 +85,14 @@
                  valueField: 'id',
                  textField: 'text'
              });
+             //Cancel 取消修改
+             $("#wincan").click(function () {
+                 $('#win').window("close", true);
+             });
 
+             $("#resetCans").click(function () {
+                 $('#win').window("close", true);
+             });
              //查询提交
              $('#searchForm').submit(function () {
                  if ($('#searchForm').form('validate')) {
@@ -217,12 +224,6 @@
          function editUser(judge)
          {
              var row = $('#dg').datagrid('getSelected');
-             var test;
-             $("#UserName").attr("validate", "{required:true,minlength:3,maxlength:15,stringCheck:true }");
-             $("#RealName").attr("validate", "{required:true,minlength:2,maxlength:15,stringCheck:true}");
-             //$("#Section").attr("validate", "{required:true }");
-             //$("#DicSex").attr("validate", "{required:true }");
-             //$("#DicStatus").attr("validate", "{required:true }");
              //编辑修改
              if (judge > -1) {
                  if (row == null)

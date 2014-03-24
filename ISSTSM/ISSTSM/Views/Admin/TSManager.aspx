@@ -64,7 +64,10 @@
                      });
                  }
              });
-
+             //Cancel 取消修改
+             $("#wincan").click(function () {
+                 $('#win').window("close", true);
+             });
              //表单验证
              $.metadata.setType("attr", "validate");
              $("#editwindow").validate({
@@ -236,7 +239,6 @@
                      break;
              }
          };
-
 
      </script>
 </head>

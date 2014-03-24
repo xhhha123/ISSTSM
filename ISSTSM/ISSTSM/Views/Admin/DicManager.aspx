@@ -80,7 +80,10 @@
          });
 
          $(function () {
-
+             //Cancel 取消修改
+             $("#wincan").click(function () {
+                 $('#win').window("close", true);
+             });
              //验证
              // 字符验证 
              jQuery.validator.addMethod("stringCheck", function (value, element) {

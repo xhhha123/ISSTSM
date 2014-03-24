@@ -270,7 +270,7 @@ namespace ISSTSM.DataAccessLayer
 		public IList< RoleEntity> Get_RoleAll()
 		{
 			IList< RoleEntity> Obj=new List< RoleEntity>();
-			string sqlStr="select * from Role";
+            string sqlStr = "select * from Role where IsDeleted=0";
 			using(SqlDataReader dr=SqlHelper.ExecuteReader(Conn.SqlConn,CommandType.Text,sqlStr))
 			{
 				while(dr.Read())

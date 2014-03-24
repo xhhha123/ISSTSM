@@ -142,6 +142,7 @@ namespace ISSTSM.Actions
                         UserRoleEntity userrole = new UserRoleEntity();
                         userrole.UserID = ID;
                         userrole.RoleID = int.Parse(role[i]);
+                        userrole.CreateDate = DateTime.Now;
                         UserRoleBLLBase.Create_UserRoleInsert(userrole);
                     }
                 }

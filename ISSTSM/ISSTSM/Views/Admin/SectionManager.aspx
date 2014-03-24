@@ -38,8 +38,7 @@
                      { field: 'ParentID', title: 'ParentID', width: 50, editor: 'text', sortable: true },
                      { field: 'SectionName', title: 'SectionName', width: 100, editor: 'text', sortable: true },
                      { field: 'SectionCode', title: 'SectionCode', width: 100, editor: 'text', sortable: true },
-                     { field: 'Description', title: 'Description', width: 100, editor: 'text', sortable: true },
-                      { field: 'Sort', title: 'Sort', width: 100, editor: 'text', sortable: true }
+                     { field: 'Description', title: 'Description', width: 100, editor: 'text', sortable: true }
                  ]],   
                  view: detailview,  
                  detailFormatter:function(index,row){  
@@ -116,7 +115,10 @@
                      return true;
                  }
              }, "两次输入密码不一致");
-
+             //Cancel 取消修改
+             $("#wincan").click(function () {
+                 $('#win').window("close", true);
+             });
              //表单验证
              $.metadata.setType("attr", "validate");
              $("#editwindow").validate({
@@ -289,8 +291,7 @@
              }
          };
 
-        
-
+       
      </script>
 </head>
 <body>

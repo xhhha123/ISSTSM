@@ -44,16 +44,13 @@
                  height: '450',
                  pagination: true,
                  columns: [[
-                     { field: 'ID', title: 'ID', width: 50, editor: 'text', sortable: true },
                      { field: 'RoleName', title: 'RoleName', width: 50, editor: 'text', sortable: true },
-                     { field: 'CreateUserID', title: 'CreateUserID', width: 50, editor: 'text', sortable: true },
                      { field: 'Description', title: 'Description', width: 100, editor: 'text', sortable: true },
                      {
                          field: 'CreateDate', title: 'CreateDate', width: 100, editor: 'text', sortable: true, formatter: function (value) {
                              return $.globalParas.changeDateFormat(value);
                          }
-                     },
-                      { field: 'Sort', title: 'Sort', width: 50, editor: 'text', sortable: true }
+                     }
                  ]],
              });
              var p = $('#dg').datagrid('getPager');
@@ -64,6 +61,14 @@
          });
 
          $(function () {
+             //Cancel 取消修改
+             $("#wincan").click(function () {
+                 $('#win').window("close", true);
+             });
+             //Cancel 取消修改
+             $("#CancelModPer").click(function () {
+                 $('#win').window("close", true);
+             });
              //表单验证
              $.metadata.setType("attr", "validate");
              $("#editwindow").validate({
@@ -83,6 +88,7 @@
                      });
                      if (dataText == "Success")//后台处理成功返回的数据
                      {
+                         isEdit = 0;
                          $.messager.show({
                              msg: ' Successfully !',
                          });
