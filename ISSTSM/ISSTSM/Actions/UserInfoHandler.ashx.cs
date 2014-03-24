@@ -14,12 +14,18 @@ namespace ISSTSM.Actions
     public class GetUserInfo : IHttpHandler,System.Web.SessionState.IRequiresSessionState
     {
         public string json;
+        public string name;
+        public string sectionId;
+
         Common.DataHelper dt = new Common.DataHelper();
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
             string t = context.Request.Params["t"];
             string id=context.Request.Params["id"];
+            name=context.Request.Params["name"];
+            sectionId = context.Request.Params["sectionId"];
+
             switch (t)
             {
                 case "getall":
@@ -43,12 +49,14 @@ namespace ISSTSM.Actions
                 case "ResetPwd":
                     context.Response.Write(ResetPwd(id));
                     break;
+                case "getall,search":             
+                    context.Response.Write(Search());
+                    break;
                 default:
                     break;
             }
             
         }
-
 
         //重置密码
         public string ResetPwd(string id)
@@ -256,6 +264,35 @@ namespace ISSTSM.Actions
             UserInfoBLLBase.Create_UserInfoDelete(ID);
             return "Success";
         }
+
+        /// <summary>
+        /// 根据条件进行查询
+        /// </summary>
+        private string Search()
+        {
+            Dictionary<string, string> fields = new Dictionary<string, string>();
+            fields.Add("UserName", name);
+            //部门ID不为空的话，就拼接sectionId
+            if(!string.IsNullOrEmpty(sectionId))
+            {
+                fields.Add("SectionID", sectionId);
+            }
+            
+            string strPageIndex = HttpContext.Current.Request.Params["page"];
+            string strPageSize = HttpContext.Current.Request.Params["rows"];
+            //转换成json数据格式
+            Common.PageData pageData = new Common.PageData()
+            {
+                PageIndex = int.Parse(strPageIndex),
+                PageSize = 100//查询定义，可以修改
+            };
+            List<UserInfoUIEntity> finallist = new List<UserInfoUIEntity>();
+            Common.TBToList<UserInfoEntity> temp = new Common.TBToList<UserInfoEntity>();
+            IList<UserInfoEntity> list = temp.ToList(Common.DataHelper.SearchData("UserInfo", pageData,fields));
+            pageData.rows = list;
+            return Common.DataHelper.ToJson(pageData);
+        }
+
         public bool IsReusable
         {
             get

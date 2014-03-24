@@ -94,12 +94,16 @@
                  $('#win').window("close", true);
              });
              //查询提交
-             $('#searchForm').submit(function () {
-                 if ($('#searchForm').form('validate')) {
-                     $('#dg').datagrid({
-                         queryParam: $('#searchForm').serializeJson()
-                     });
-                 }
+             $('#searchBtn').click(function () {
+                 //  alert("123");
+                 var username=$("#searchName").val();
+                 var sectionId = $("#SectionID").val();
+                 if(username==""){alert("请输入UserName")};
+                 $('#dg').datagrid('load', {
+                     t: 'search',
+                     name: username,
+                     sectionId: sectionId,
+                 });
              });
 
 
@@ -393,11 +397,11 @@
         <div id="operate"  class="operate">
         </div>
 		<div id="searchBar">
-            <form id="searchForm">
-			    Name: <input id="searchName" style="width:80px">
+            <form>
+			    UserName: <input id="searchName" style="width:80px">
                  Section :
                             <input id="SectionID" class="easyui-combobox" name="SectionID" />
-			    <input type="submit"  value="Search"  iconCls="icon-search">
+			    <input id="searchBtn" type="button"  value="Search"  iconCls="icon-search">
 
 		    </form>
         </div>

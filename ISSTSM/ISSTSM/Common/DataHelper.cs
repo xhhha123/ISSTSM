@@ -140,5 +140,15 @@ namespace ISSTSM.Common
             return Extension.GetCurPermissData(RoleId, ModuleId);
         }
         #endregion
+       
+        /// <summary>
+        /// 7.0 模糊查询 static DataTable SearchData(string tbName,Dictionary<string,string>fields)
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable SearchData(string tbName, PageData pagedata, Dictionary<string, string> fields)
+        {
+           // pagedata.total = Extension.GetTotalNum(tbName);
+            return Extension.SearchData(tbName, fields);
+        }
     }
 }
