@@ -50,7 +50,7 @@
              });
              var p = $('#dg').datagrid('getPager');
              $(p).pagination({
-                 pageList: [20, 50, 100]
+                 pageList: [10, 50, 100]
              });
          });
 

@@ -68,7 +68,7 @@
              });
              var p = $('#dg').datagrid('getPager');
              $(p).pagination({
-                 pageList: [20, 50, 100]
+                 pageList: [10, 50, 100]
              });
          });
 
@@ -111,7 +111,6 @@
 
              //查询提交
              $('#searchBtn').click(function () {
-                 //  alert("123");
                  var IncidentNumber = $("#SearchIncidentNumber").val();
                  var dateBefore = $('#dateBefore').datebox('getValue');// 3/6/2014
                  var dateAfter = $('#dateAfter').datebox('getValue');

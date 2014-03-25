@@ -25,6 +25,12 @@
          var userID;
 
          $(function () {
+             $('#dateBefore').datebox({
+                 formatter: function (date) { return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(); },
+             });
+             $('#dateAfter').datebox({
+                 formatter: function (date) { return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(); },
+             });
              userID = $("#userID").val();
              $("#dg").datagrid({
                  heigth: 700,
@@ -41,13 +47,13 @@
                              return $.globalParas.changeDateFormat(value);
                          }
                      },
-                     { field: 'IncidentName', title: 'IncidentName', width: 80, editor: 'text', sortable: true },
-                     { field: 'BillableHour', title: 'BillableHour', width: 20, editor: 'text', sortable: true },
+                     { field: 'IncidentName', title: 'IncidentName', width: 50, editor: 'text', sortable: true },
+                     { field: 'BillableHour', title: 'Hour', width: 30, editor: 'text', sortable: true },
                       { field: 'UserName', title: 'UserName', width: 50, editor: 'text', sortable: true },
-                      { field: 'DicTitleName', title: 'TitleName', width: 50, editor: 'text', sortable: true },
-                     { field: 'DicProjectName', title: 'ProjectName', width: 50, editor: 'text', sortable: true },
-                     { field: 'DicGroupName', title: 'GroupName', width: 60, editor: 'text', sortable: true },
-                     { field: 'DicTypeName', title: 'TypeName', width: 50, editor: 'text', sortable: true },
+                      { field: 'DicTitleName', title: 'Title', width: 50, editor: 'text', sortable: true },
+                     { field: 'DicProjectName', title: 'Project', width: 50, editor: 'text', sortable: true },
+                     { field: 'DicGroupName', title: 'Group', width: 60, editor: 'text', sortable: true },
+                     { field: 'DicTypeName', title: 'Type', width: 50, editor: 'text', sortable: true },
                       { field: 'SubProject', title: 'SubProject', width: 150, editor: 'text', sortable: true },
                       { field: 'Tasks', title: 'Tasks', width: 150, editor: 'text', sortable: true }
                  ]],
@@ -61,13 +67,26 @@
          $(function () {
 
              //查询提交
-             $('#searchForm').submit(function () {
-                 if ($('#searchForm').form('validate')) {
-                     $('#dg').datagrid({
-                         queryParam: $('#searchForm').serializeJson()
-                     });
+             $('#searchBtn').click(function () {
+                 //  alert("123");
+                 var dateBefore = $('#dateBefore').datebox('getValue');// 3/6/2014
+                 var dateAfter = $('#dateAfter').datebox('getValue');
+                 // userID
+                 if (Date.parse(dateBefore) > Date.parse(dateAfter)) {
+                     alert("结束时间应该大于开始时间");
+                     return;
                  }
+                 //判断日期
+                 if (dateBefore == "" && dateAfter == "") {
+                     alert("至少输入一个查询条件")
+                 };
+                 $('#dg').datagrid('load', {
+                     t: 'search',
+                     dateBefore: dateBefore,
+                     dateAfter: dateAfter
+                 });
              });
+
 
              //表单验证
              $.metadata.setType("attr", "validate");
@@ -223,9 +242,10 @@
         <div id="operate"  class="operate">
         </div>
 		<div id="searchBar">
-            <form id="searchForm">
-			    ItemName: <input id="SearchItemName" style="width:80px" />
-			    <input type="submit"  value="Search"  iconCls="icon-search" />
+            <form >
+                从：<input id="dateBefore" type="text" class="easyui-datebox" style="width:80px;" />
+                到：<input id="dateAfter" type="text" class="easyui-datebox" style="width:80px;" />
+			    <input id="searchBtn" type="button"  value="Search"  iconCls="icon-search"/>
 		    </form>
         </div>
 	</div>
