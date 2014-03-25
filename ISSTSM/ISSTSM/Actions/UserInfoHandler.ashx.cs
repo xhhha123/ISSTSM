@@ -287,7 +287,7 @@ namespace ISSTSM.Actions
             Common.PageData pageData = new Common.PageData()
             {
                 PageIndex = int.Parse(strPageIndex),
-                PageSize = 100//查询定义，可以修改
+                PageSize = 10000//查询定义，可以修改
             };
             List<UserInfoUIEntity> finallist = new List<UserInfoUIEntity>();
             Common.TBToList<UserInfoEntity> temp = new Common.TBToList<UserInfoEntity>();

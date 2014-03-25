@@ -33,6 +33,8 @@ namespace ISSTSM.Actions
         string Summary;
         string Description;
         string editOrload;
+        string dateBefore;
+        string dateAfter;
 
         public void ProcessRequest(HttpContext context)
         {
@@ -55,7 +57,8 @@ namespace ISSTSM.Actions
             Summary = context.Request.Params["Summary"];
             Description = context.Request.Params["Description"];
             editOrload = context.Request.Params["editOrload"];
-
+            dateBefore = context.Request.Params["dateBefore"];
+            dateAfter = context.Request.Params["dateAfter"];
 
             pageSize = context.Request.Params["rows"];
             pageSize = context.Request.Params["rows"];
@@ -88,9 +91,73 @@ namespace ISSTSM.Actions
                 case "delAdmin":
                     DelAdmin();
                     break;
+                case "loadAdmin,search":
+                    Search();
+                    break;
                 default:
                     break;
             }
+        }
+
+        private void Search()
+        {
+            Dictionary<string, string> fields = new Dictionary<string, string>();
+            //查询判断
+            if (!string.IsNullOrEmpty(IncidentNumber))
+            {
+                fields.Add("IncidentNumber",IncidentNumber);
+            }
+            //日期不为空的话，就拼接查询字符串
+            if (!string.IsNullOrEmpty(dateBefore)&&!string.IsNullOrEmpty(dateAfter))
+            {
+                fields.Add("dateBefore", dateBefore);
+                fields.Add("dateAfter", dateAfter);
+            }
+            string strPageIndex = HttpContext.Current.Request.Params["page"];
+            string strPageSize = HttpContext.Current.Request.Params["rows"];
+            //转换成json数据格式
+            PageData pageData = new PageData()
+            {
+                PageIndex = Convert.ToInt32(pageIndex),
+                PageSize = Convert.ToInt32(pageSize)
+            };
+            Common.TBToList<IncidentEntity> temp = new Common.TBToList<IncidentEntity>();
+            IList<IncidentEntity> list = temp.ToList(Common.DataHelper.SearchData("Incident", pageData, "CreateDate",fields));
+            List<IncidentUIEntity> uiList = new List<IncidentUIEntity>();
+            //Stopwatch stw = new Stopwatch();
+            //stw.Start();
+            DataDictionaryEntity dic = null;
+            UserInfoEntity user = null;
+            foreach (var item in list)
+            {
+                IncidentUIEntity entity = new IncidentUIEntity();
+                entity.ID = item.ID;
+                entity.IncidentNumber = item.IncidentNumber;
+                entity.CreateDate = item.CreateDate;
+                entity.Summary = item.Summary;
+                entity.StatusFollowUp = item.StatusFollowUp;
+                entity.Description = item.Description;
+                //UI显示转换
+                user = UserInfoBLLBase.Get_UserInfoEntity(item.AssignedTo);
+                entity.AssignedToName = user.UserName;
+                user = UserInfoBLLBase.Get_UserInfoEntity(item.ReportedBy);
+                entity.ReportedByName = user.UserName;
+                //从缓存中拿数据 127ms
+                dic = DataCache.GetCache(item.DicPriority.ToString()) as DataDictionaryEntity;
+                entity.DicPriotityName = dic.ItemName;
+                dic = DataCache.GetCache(item.DicCountry.ToString()) as DataDictionaryEntity;
+                entity.DicCountryName = dic.ItemName;
+                dic = DataCache.GetCache(item.DicProduct.ToString()) as DataDictionaryEntity;
+                entity.DicProductName = dic.ItemName;
+                dic = DataCache.GetCache(item.DicStatus.ToString()) as DataDictionaryEntity;
+                entity.DicStatusName = dic.ItemName;
+                uiList.Add(entity);
+            }
+            //stw.Stop();
+            //string time = stw.ElapsedMilliseconds.ToString();
+            pageData.rows = uiList;
+            HttpContext.Current.Response.Write(Common.DataHelper.ToJson(pageData));
+
         }
 
         private void DelAdmin()
@@ -281,14 +348,6 @@ namespace ISSTSM.Actions
             pageData.rows = uiList;
             HttpContext.Current.Response.Write(Common.DataHelper.ToJson(pageData));
         }
-
-        public string GetAllInc() {
-
-
-            return "";
-        }
-
-
         public bool IsReusable
         {
             get

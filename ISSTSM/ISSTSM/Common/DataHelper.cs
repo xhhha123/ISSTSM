@@ -150,5 +150,14 @@ namespace ISSTSM.Common
            // pagedata.total = Extension.GetTotalNum(tbName);
             return Extension.SearchData(tbName, fields);
         }
+        /// <summary>
+        /// 7.1 模糊查询-支持日期 static DataTable SearchData(string tbName,Dictionary<string,string>fields)
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable SearchData(string tbName, PageData pagedata,string date, Dictionary<string, string> fields)
+        {
+            // pagedata.total = Extension.GetTotalNum(tbName);
+            return Extension.SearchData(tbName,date, fields);
+        }
     }
 }

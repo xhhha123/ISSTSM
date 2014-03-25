@@ -33,6 +33,12 @@
                  required: true,
                  formatter: function (date) { return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(); },
              });
+             $('#dateBefore').datebox({
+                 formatter: function (date) { return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(); },
+             });
+             $('#dateAfter').datebox({
+                 formatter: function (date) { return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(); },
+             });
              $("#dg").datagrid({
                  heigth: 700,
                  idField: 'ID',
@@ -104,13 +110,28 @@
              });
 
              //查询提交
-             $('#searchForm').submit(function () {
-                 if ($('#searchForm').form('validate')) {
-                     $('#dg').datagrid({
-                         queryParam: $('#searchForm').serializeJson()
-                     });
+             $('#searchBtn').click(function () {
+                 //  alert("123");
+                 var IncidentNumber = $("#SearchIncidentNumber").val();
+                 var dateBefore = $('#dateBefore').datebox('getValue');// 3/6/2014
+                 var dateAfter = $('#dateAfter').datebox('getValue');
+                 // IncidentNumber验证以及日期验证
+                 if (Date.parse(dateBefore) > Date.parse(dateAfter)) {
+                     alert("结束时间应该大于开始时间");
+                     return;
                  }
+                 //判断日期
+                 if (IncidentNumber == "" && dateBefore == "" && dateAfter=="") {
+                     alert("至少输入一个查询条件")
+                 };
+                 $('#dg').datagrid('load', {
+                     t: 'search',
+                     IncidentNumber: IncidentNumber,
+                     dateBefore: dateBefore,
+                     dateAfter: dateAfter
+                 });
              });
+
              //Cancel 取消修改
              $("#wincan").click(function () {
                  $('#win').window("close", true);
@@ -297,9 +318,11 @@
         <div id="operate"  class="operate">
         </div>
 		<div id="searchBar">
-            <form id="searchForm">
-			    ItemName: <input id="SearchItemName" style="width:80px" />
-			    <input type="submit"  value="Search"  iconCls="icon-search" />
+            <form >
+			    IncidentNumber: <input id="SearchIncidentNumber" type="text" style="width:180px;" />
+                从：<input id="dateBefore" type="text" class="easyui-datebox" style="width:80px;" />
+                到：<input id="dateAfter" type="text" class="easyui-datebox" style="width:80px;" />
+			    <input id="searchBtn" type="button"  value="Search"  iconCls="icon-search"/>
 		    </form>
         </div>
 	</div>

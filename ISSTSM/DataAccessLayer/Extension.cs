@@ -376,6 +376,70 @@ namespace ISSTSM.DataAccessLayer
            return dt;
        } 
        #endregion
-        
+
+       #region 5.1 模糊查询-支持日期 static DataTable SearchData(string tbName,string date,Dictionary<string,string>fields)
+       /// <summary>
+       /// 5.1 模糊查询-支持日期 static DataTable SearchData(string tbName,string date, Dictionary<string,string>fields)
+       /// </summary>
+       /// <param name="tbName">表名称</param>
+       /// <param name="date">日期字段</param>
+       /// <param name="fields">字段值以及字段名</param>
+       /// <returns></returns>
+       public static DataTable SearchData(string tbName,string date, Dictionary<string, string> fields)
+       {
+           StringBuilder sql = new StringBuilder();
+           string sqlStr = "";
+           //拼接字符串
+           sql.Append("select * from " + tbName + " where " + " ");
+           //遍历fields里面的键值对 拼接成为 select * from tb where name like '%value% and date between 2011-1-1 and 2013-1-1 '
+           if (fields.Keys.Count > 1)
+           {
+               foreach (string item in fields.Keys)
+               {
+                   if (item != "dateBefore" && item != "dateAfter")
+                   {
+                       sql.Append(item + " like " + "'%" + fields[item] + "%'" + "  and" + " ");
+                   }
+                   if (item == "dateBefore")
+                   {
+                       sql.Append(date + " between "+" '"+fields[item]+"' and ");
+                   }
+                   if (item == "dateAfter")
+                   {
+                       sql.Append(" '" + fields[item] + "' ");
+                   }
+               }
+               sqlStr = sql.ToString();
+           }
+           else
+           {
+               foreach (string item in fields.Keys)
+               {
+                   sql.Append(item + " like " + "'%" + fields[item] + "%'" + " ");
+               }
+               sqlStr = sql.ToString();
+           }
+
+           DataTable dt = new DataTable();
+           using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.Text, sqlStr))
+           {
+
+               int fieldCount = dr.FieldCount;
+               for (int i = 0; i < fieldCount; i++)
+               {
+                   dt.Columns.Add(dr.GetName(i), dr.GetFieldType(i));
+               }
+               dt.BeginLoadData();
+               object[] objValues = new object[fieldCount];
+               while (dr.Read())
+               {
+                   dr.GetValues(objValues);
+                   dt.LoadDataRow(objValues, true);
+               }
+               dt.EndLoadData();
+           }
+           return dt;
+       }
+       #endregion
     }
 }
