@@ -441,5 +441,57 @@ namespace ISSTSM.DataAccessLayer
            return dt;
        }
        #endregion
+
+       #region 6.0 条件查询 static DataTable GetDataByWhere(string tbName,Dictionary<string, string> fields)
+       /// <summary>
+       /// 6.0 条件查询 static DataTable GetDataByWhere(string tbName,Dictionary<string, string> fields)
+       /// </summary>
+       /// <param name="tbName"></param>
+       /// <param name="fields"></param>
+       /// <returns></returns>
+       public static DataTable GetDataByWhere(string tbName, Dictionary<string, string> fields)
+       {
+           StringBuilder sql = new StringBuilder();
+           string sqlStr = "";
+           //拼接字符串
+           sql.Append("select * from " + tbName + " where " + " ");
+           //遍历fields里面的键值对 拼接成为 select * from tb where name=value
+           if (fields.Keys.Count > 1)
+           {
+               foreach (string item in fields.Keys)
+               {
+                   sql.Append(item + "=" + "'" + fields[item] + "'" + "  and" + " ");
+               }
+               sqlStr = sql.ToString().Substring(0, sql.Length - 4).ToString();
+           }
+           else
+           {
+               foreach (string item in fields.Keys)
+               {
+                   sql.Append(item + "=" + "'" + fields[item] + "'" + " ");
+               }
+               sqlStr = sql.ToString();
+           }
+           DataTable dt = new DataTable();
+           using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.Text, sqlStr))
+           {
+
+               int fieldCount = dr.FieldCount;
+               for (int i = 0; i < fieldCount; i++)
+               {
+                   dt.Columns.Add(dr.GetName(i), dr.GetFieldType(i));
+               }
+               dt.BeginLoadData();
+               object[] objValues = new object[fieldCount];
+               while (dr.Read())
+               {
+                   dr.GetValues(objValues);
+                   dt.LoadDataRow(objValues, true);
+               }
+               dt.EndLoadData();
+           }
+           return dt;
+       } 
+       #endregion
     }
 }

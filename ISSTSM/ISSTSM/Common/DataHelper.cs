@@ -105,6 +105,7 @@ namespace ISSTSM.Common
             return Extension.GetSubData(tbName, ParentID, ParentVal, IsVisible, IsVisibleVal, orderby);
         } 
         #endregion
+
         #region 6.0 根据Role.ID查询对应的Module  public static DataTable GetModuleData(string id)
         /// <summary>
         /// 6.0 根据Role.ID查询对应的Module  public static DataTable GetModuleData(string id)
@@ -140,24 +141,42 @@ namespace ISSTSM.Common
             return Extension.GetCurPermissData(RoleId, ModuleId);
         }
         #endregion
-       
+
+        #region  7.0 模糊查询 static DataTable SearchData(string tbName,Dictionary<string,string>fields) 
         /// <summary>
         /// 7.0 模糊查询 static DataTable SearchData(string tbName,Dictionary<string,string>fields)
         /// </summary>
         /// <returns></returns>
         public static DataTable SearchData(string tbName, PageData pagedata, Dictionary<string, string> fields)
         {
-           // pagedata.total = Extension.GetTotalNum(tbName);
+            // pagedata.total = Extension.GetTotalNum(tbName);
             return Extension.SearchData(tbName, fields);
-        }
+        } 
+        #endregion
+
+        #region 7.1 模糊查询-支持日期 static DataTable SearchData(string tbName,Dictionary<string,string>fields)
         /// <summary>
         /// 7.1 模糊查询-支持日期 static DataTable SearchData(string tbName,Dictionary<string,string>fields)
         /// </summary>
         /// <returns></returns>
-        public static DataTable SearchData(string tbName, PageData pagedata,string date, Dictionary<string, string> fields)
+        public static DataTable SearchData(string tbName, PageData pagedata, string date, Dictionary<string, string> fields)
         {
             // pagedata.total = Extension.GetTotalNum(tbName);
-            return Extension.SearchData(tbName,date, fields);
-        }
+            return Extension.SearchData(tbName, date, fields);
+        } 
+        #endregion
+
+        #region 8.0 条件查询 static DataTable GetDataByWhere(string tbName,Dictionary<string, string> fields)
+        /// <summary>
+        /// 8.0 条件查询 static DataTable GetDataByWhere(string tbName,Dictionary<string, string> fields)
+        /// </summary>
+        /// <param name="tbName"></param>
+        /// <param name="fields"></param>
+        /// <returns></returns>
+        public static DataTable GetDataByWhere(string tbName, Dictionary<string, string> fields)
+        {
+            return Extension.GetDataByWhere(tbName, fields);
+        } 
+        #endregion
     }
 }
