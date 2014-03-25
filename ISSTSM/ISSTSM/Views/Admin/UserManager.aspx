@@ -97,8 +97,10 @@
              $('#searchBtn').click(function () {
                  //  alert("123");
                  var username=$("#searchName").val();
-                 var sectionId = $("#SectionID").val();
-                 if(username==""){alert("请输入UserName")};
+                 var sectionId=$("#SectionID").combobox('getValue');
+                 if (username == ""&&sectionId=="") {
+                     alert("至少输入一个查询条件")
+                 };
                  $('#dg').datagrid('load', {
                      t: 'search',
                      name: username,

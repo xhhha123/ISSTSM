@@ -342,15 +342,19 @@ namespace ISSTSM.DataAccessLayer
            {
                foreach (string item in fields.Keys)
                {
-                   sql.Append(item + " like " + "'"+fields[item] +"'"+ "  and");
+                   sql.Append(item + " like " + "'%"+fields[item] +"%'"+ "  and"+" ");
                }
                sqlStr = sql.ToString().Substring(0, sql.Length - 4).ToString();
            }
-           foreach (string item in fields.Keys)
+           else
            {
-               sql.Append(item + " like " + "'" + fields[item] + "'" + " ");
+               foreach (string item in fields.Keys)
+               {
+                   sql.Append(item + " like " + "'%" + fields[item] + "%'" + " ");
+               }
+               sqlStr = sql.ToString();
            }
-           sqlStr = sql.ToString();
+
            DataTable dt = new DataTable();
            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.Text, sqlStr))
            {

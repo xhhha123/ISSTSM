@@ -37,3 +37,16 @@ E:\NET项目\ISSTSM\ISSTSM\BusinessLogicLayer\bin\Debug\IDataAccessLayer.pdb
 E:\NET项目\ISSTSM\ISSTSM\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
 E:\NET项目\ISSTSM\ISSTSM\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 E:\NET项目\ISSTSM\ISSTSM\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\bin\Debug\DataAccessLayerFactory.dll
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\bin\Debug\Enity.dll
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\bin\Debug\IDataAccessLayer.dll
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\bin\Debug\ISSTSM.DataAccessLayer.dll
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\bin\Debug\DataAccessLayerFactory.pdb
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\bin\Debug\ISSTSM.DataAccessLayer.pdb
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\bin\Debug\Enity.pdb
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\bin\Debug\IDataAccessLayer.pdb
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+E:\study\GitHub\ISSTSM\ISSTSM\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

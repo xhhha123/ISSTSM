@@ -271,7 +271,10 @@ namespace ISSTSM.Actions
         private string Search()
         {
             Dictionary<string, string> fields = new Dictionary<string, string>();
-            fields.Add("UserName", name);
+            if(!string.IsNullOrEmpty(name))
+            {
+                fields.Add("UserName", name);
+            }            
             //部门ID不为空的话，就拼接sectionId
             if(!string.IsNullOrEmpty(sectionId))
             {
@@ -289,7 +292,25 @@ namespace ISSTSM.Actions
             List<UserInfoUIEntity> finallist = new List<UserInfoUIEntity>();
             Common.TBToList<UserInfoEntity> temp = new Common.TBToList<UserInfoEntity>();
             IList<UserInfoEntity> list = temp.ToList(Common.DataHelper.SearchData("UserInfo", pageData,fields));
-            pageData.rows = list;
+            foreach (var item in list)
+            {
+                SectionEntity sec = SectionBLLBase.Get_SectionEntity(item.SectionID);
+                UserInfoUIEntity uientity = new UserInfoUIEntity();
+                uientity.ID = item.ID;
+                uientity.DicAddress = item.DicAddress;
+                uientity.DicSex = item.DicSex;
+                uientity.DicStatus = item.DicStatus;
+                uientity.Email = item.Email;
+                uientity.Photopath = item.Photopath;
+                uientity.Pwd = item.Pwd;
+                uientity.QQ = item.QQ;
+                uientity.RealName = item.RealName;
+                uientity.UserName = item.UserName;
+                uientity.Telephone = item.Telephone;
+                uientity.SectionName = sec.SectionName;
+                finallist.Add(uientity);
+            }
+            pageData.rows = finallist;
             return Common.DataHelper.ToJson(pageData);
         }
 

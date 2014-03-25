@@ -11,7 +11,8 @@ namespace ISSTSM.DataAccessLayer
         {
             get
             {
-                return "server=.;database=ISSTSM;uid=sa;pwd=1999141;";
+               // return "server=.;database=ISSTSM;uid=sa;pwd=1999141;";自己电脑
+                return "Data Source=MIMEODEV"+"\\"+"SQLEXPRESS;Initial Catalog=ISSTSM;User ID=sa;Password=123456;";//公司电脑
             }
         }
     }

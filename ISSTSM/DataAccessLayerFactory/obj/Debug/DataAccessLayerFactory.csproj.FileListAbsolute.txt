@@ -25,3 +25,12 @@ E:\NET项目\ISSTSM\ISSTSM\DataAccessLayerFactory\bin\Debug\IDataAccessLayer.pdb
 E:\NET项目\ISSTSM\ISSTSM\DataAccessLayerFactory\obj\Debug\DataAccessLayerFactory.csprojResolveAssemblyReference.cache
 E:\NET项目\ISSTSM\ISSTSM\DataAccessLayerFactory\obj\Debug\DataAccessLayerFactory.dll
 E:\NET项目\ISSTSM\ISSTSM\DataAccessLayerFactory\obj\Debug\DataAccessLayerFactory.pdb
+E:\study\GitHub\ISSTSM\ISSTSM\DataAccessLayerFactory\bin\Debug\DataAccessLayerFactory.dll
+E:\study\GitHub\ISSTSM\ISSTSM\DataAccessLayerFactory\bin\Debug\DataAccessLayerFactory.pdb
+E:\study\GitHub\ISSTSM\ISSTSM\DataAccessLayerFactory\bin\Debug\Enity.dll
+E:\study\GitHub\ISSTSM\ISSTSM\DataAccessLayerFactory\bin\Debug\IDataAccessLayer.dll
+E:\study\GitHub\ISSTSM\ISSTSM\DataAccessLayerFactory\bin\Debug\Enity.pdb
+E:\study\GitHub\ISSTSM\ISSTSM\DataAccessLayerFactory\bin\Debug\IDataAccessLayer.pdb
+E:\study\GitHub\ISSTSM\ISSTSM\DataAccessLayerFactory\obj\Debug\DataAccessLayerFactory.csprojResolveAssemblyReference.cache
+E:\study\GitHub\ISSTSM\ISSTSM\DataAccessLayerFactory\obj\Debug\DataAccessLayerFactory.dll
+E:\study\GitHub\ISSTSM\ISSTSM\DataAccessLayerFactory\obj\Debug\DataAccessLayerFactory.pdb
